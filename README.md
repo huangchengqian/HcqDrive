@@ -1,5 +1,7 @@
 # HcqDrive
 
+**English** | [简体中文](README.zh.md)
+
 **Turn your Android phone into a private LAN cloud.**
 Scan a QR code from any browser on the same Wi-Fi — instant access to your
 photos, videos, and files. No cloud. No account. No client to install.
