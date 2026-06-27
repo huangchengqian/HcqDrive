@@ -1,0 +1,73 @@
+# ============ Android / Kotlin / Gradle ============
+*.apk
+*.aar
+*.ap_
+*.aab
+*.dex
+*.class
+*.iml
+*.ipr
+*.iws
+*.jks
+*.keystore
+
+# Generated / build outputs
+bin/
+gen/
+out/
+build/
+captures/
+.externalNativeBuild/
+.cxx/
+
+# Gradle
+.gradle/
+gradle-app.setting
+.gradletasknamecache
+
+# Local SDK config (contains absolute path to local Android SDK)
+local.properties
+
+# IntelliJ / Android Studio
+.idea/
+.navigation/
+*.hprof
+
+# Logs / temp
+*.log
+*.hprof
+
+# Keystores / secrets
+*.env
+secrets.properties
+
+# ============ Web (Vue / Vite / Node) ============
+node_modules/
+dist/
+dist-ssr/
+.vite/
+*.local
+*.tsbuildinfo
+# Vite / TS build artefacts (NOT source); keep src/**/*.d.ts via negative patterns below
+vite.config.js
+vite.config.d.ts
+tailwind.config.js
+tailwind.config.d.ts
+postcss.config.d.ts
+
+# ============ OS / Editor ============
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# ============ Tooling (Sisyphus / Playwright MCP / etc.) ============
+.sisyphus/
+.playwright-mcp/
+.opencode/
+.sisyphus-notify.json
+
+# Project-local scratch
+*.tmp
+*.bak

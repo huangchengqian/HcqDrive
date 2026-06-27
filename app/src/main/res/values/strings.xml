@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">HcqDrive</string>
+    <string name="notification_title">HcqDrive 服务运行中</string>
+    <string name="notification_text">服务运行中 - %1$s</string>
+    <string name="notification_text_with_code">配对码 %1$s · %2$s</string>
+    <string name="notification_text_with_connections">已连接 %1$d 台 · %2$s</string>
+    <string name="qr_activity_title">扫码配对</string>
+</resources>
