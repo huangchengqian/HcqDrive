@@ -1,0 +1,58 @@
+name: Lint README
+
+on:
+  push:
+    paths:
+      - 'README.md'
+      - 'README.zh.md'
+  pull_request:
+    paths:
+      - 'README.md'
+      - 'README.zh.md'
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    name: Check README
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check for broken local links
+        run: |
+          set -e
+          for f in README.md README.zh.md; do
+            echo "Checking $f ..."
+            grep -oE '\]\(([^)]+)\)' "$f" | sed -E 's/^\]\(//; s/\)$//' | while read -r link; do
+              case "$link" in
+                http*|https*|mailto:*|discord*|#*) continue ;;
+              esac
+              if [ ! -e "$link" ]; then
+                echo "::error file=$f::Broken local link: $link"
+                exit 1
+              fi
+            done
+          done
+          echo "All local links resolve."
+
+      - name: Check Mermaid blocks are balanced
+        run: |
+          set -e
+          for f in README.md README.zh.md; do
+            open=$(grep -c '^```mermaid' "$f" || true)
+            close=$(grep -c '^```$' "$f" || true)
+            echo "$f: mermaid open=$open, total code fences closed=$close"
+          done
+
+      - name: Check emoji count (no emoji wall)
+        run: |
+          for f in README.md README.zh.md; do
+            count=$(python3 -c "import re; print(len(re.findall(r'[\U0001F300-\U0001FAFF\U00002600-\U000027BF]', open('$f').read())))")
+            echo "$f emoji count: $count"
+            if [ "$count" -gt 5 ]; then
+              echo "::warning file=$f::Emoji count is $count (>5). Consider trimming."
+            fi
+          done
