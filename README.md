@@ -159,3 +159,5 @@ HcqDrive sits in a healthy ecosystem. If it doesn't fit your need, try:
 See [`docs/release-process.md`](docs/release-process.md) for how to cut a
 release and how to set up the release signing keystore.
 The full version history lives in [`CHANGELOG.md`](CHANGELOG.md).
+Pre-written announcement copy for V2EX, 少数派, 即刻, HN, and Reddit
+lives under [`docs/announcements/`](docs/announcements/).
